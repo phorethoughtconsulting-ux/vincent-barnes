@@ -396,7 +396,7 @@
 
   // contact form → email (Web3Forms) + Slack ping. Paste the same two values used on every other form.
   (function(){var f=document.getElementById('cform');if(!f)return;
-   var WEB3FORMS_KEY='bb4252da-6cf6-4eee-8e78-933ef950b3ad';  // Web3Forms access key
+   var WEB3FORMS_KEY='';  // Web3Forms access key
    var SLACK_WEBHOOK='';  // left empty — webhook here = public secret GitHub blocks; route Slack via Web3Forms
    f.addEventListener('submit',function(e){e.preventDefault();
      var n=(document.getElementById('cf-name').value||'').trim(),em=(document.getElementById('cf-email').value||'').trim();
