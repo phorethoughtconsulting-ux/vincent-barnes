@@ -323,14 +323,14 @@
   <div class="wrap">
     <div class="eyebrow slabel reveal">What I Do</div>
     <h2 class="stitle reveal">A builder, in every sense.</h2>
-    <p class="ssub reveal">From job sites to balance sheets to stages — here's where I spend my time.</p>
+    <p class="ssub reveal">From job sites to balance sheets to the people I mentor — here's where I spend my time.</p>
 
     <div class="dgrid reveal">
       <div class="dcard"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 7l-1.5-1.5a2 2 0 0 0-3 0L3 12l4 4 6.5-6.5a2 2 0 0 0 0-3z"/><path d="M14 10l7 7-2 2-7-7"/></svg></div><h3>General Contracting</h3><p>Hands-on renovation, repair, and build work — run through First Call Handyman.</p></div>
       <div class="dcard"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-4"/><path d="M9 3v4h6V3"/><path d="M8 12h8M8 16h5"/></svg></div><h3>Renovation &amp; Project Management</h3><p>Managing remodels and builds from first estimate to final walkthrough — on time and on budget.</p></div>
       <div class="dcard"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M9 21v-5h6v5"/><path d="M9 11h.01M15 11h.01"/></svg></div><h3>Real Estate Investing</h3><p>Acquiring and improving property to build long-term wealth and cash flow.</p></div>
       <div class="dcard"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div><h3>Business Owner</h3><p>Founding and running companies — and building the systems that let them run without me.</p></div>
-      <div class="dcard"><div class="ic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3M8 21h8"/></svg></div><h3>Sharing the Playbook</h3><p>Passing on the real lessons — business, money, and leadership — so the next person doesn't start from zero.</p></div>
+      <div class="dcard"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 0 2 2h13"/></svg></div><h3>Sharing the Playbook</h3><p>Passing on the real lessons — business, money, and leadership — so the next person doesn't start from zero.</p></div>
       <div class="dcard"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M5 21c0-4 3-7 7-7s7 3 7 7"/><path d="M12 11v3"/></svg></div><h3>Mentor</h3><p>Helping driven people build discipline, real businesses, and a life of purpose.</p></div>
     </div>
 
@@ -398,20 +398,20 @@
       <div class="ccard">
         <div class="ck">Discipline &amp; Leadership</div>
         <h3>Stop waiting to feel ready.</h3>
-        <p><b>The pain:</b> You know what to do. You just can't get yourself to do it consistently.</p>
-        <p><b>The shift:</b> We build the discipline I perfected in the Navy — show up when it's hard, do it when nobody's watching, and make it a standard instead of a mood.</p>
+        <p><b>Right now:</b> You know what to do. You just can't get yourself to do it consistently.</p>
+        <p><b>What we build:</b> The discipline I perfected in the Navy — show up when it's hard, do it when nobody's watching, and make it a standard instead of a mood.</p>
       </div>
       <div class="ccard">
         <div class="ck">Building the Business</div>
         <h3>A job you own still owns you.</h3>
-        <p><b>The pain:</b> You're working every seat in your business, so it can't grow past you.</p>
-        <p><b>The shift:</b> We put real systems and standards underneath it — the kind that let a company run without you in every seat.</p>
+        <p><b>Right now:</b> You're working every seat in your business, so it can't grow past you.</p>
+        <p><b>What we build:</b> Real systems and standards underneath it — the kind that let a company run without you in every seat.</p>
       </div>
       <div class="ccard">
         <div class="ck">Money &amp; the Long Game</div>
         <h3>Build something that lasts.</h3>
-        <p><b>The pain:</b> The money comes in, the money goes out, and nothing compounds.</p>
-        <p><b>The shift:</b> We get your money organized and working — how I think about real estate, investing, and playing the long game with faith and family first.</p>
+        <p><b>Right now:</b> The money comes in, the money goes out, and nothing compounds.</p>
+        <p><b>What we build:</b> Money that's organized and working — how I think about real estate, investing, and playing the long game with faith and family first.</p>
       </div>
     </div>
 
@@ -477,7 +477,7 @@
      var tasks=[];
      if(WEB3FORMS_KEY){tasks.push(fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({access_key:WEB3FORMS_KEY,subject:'New message — Vincent Barnes site',from_name:'Vincent Barnes site',name:n,email:em,message:m||'(no message)'})}).catch(function(){}));}
      if(SLACK_WEBHOOK){tasks.push(fetch(SLACK_WEBHOOK,{method:'POST',mode:'no-cors',body:JSON.stringify({text:':wave: *New message — Vincent site*\nName: '+n+'\nEmail: '+em+(m?('\nMsg: '+m):'')})}).catch(function(){}));}
-     if(!tasks.length){done();return;}
+     if(!tasks.length){var d=document.getElementById('cdone');if(d){d.textContent='This form isn’t connected yet — reach me through First Call Handyman in the meantime.';}done();return;}
      Promise.allSettled(tasks).then(done);
    });})();
 
