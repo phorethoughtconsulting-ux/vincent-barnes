@@ -54,7 +54,7 @@
   .nlinks{display:flex;align-items:center;gap:28px;list-style:none}
   .nlinks a{font-size:14.5px;color:var(--soft);transition:color .2s}.nlinks a:hover{color:var(--ink)}
   .nbtn{font-family:var(--disp);font-weight:600;font-size:13px;letter-spacing:.5px;background:var(--blue);color:#fff;padding:9px 18px;border-radius:8px;transition:background .2s}.nbtn:hover{background:#2f6fe0}
-  .navtog{display:none;background:none;border:none;color:var(--ink);font-size:24px;cursor:pointer}
+  .navtog{display:none;background:none;border:none;color:var(--ink);font-size:24px;cursor:pointer;min-width:44px;min-height:44px;align-items:center;justify-content:center}
 
   /* HERO */
   .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:90px 0 60px}
@@ -200,7 +200,7 @@
   }
   @media(max-width:980px){.dgrid{grid-template-columns:1fr 1fr}.rgrid{grid-template-columns:1fr 1fr}.cgrid{grid-template-columns:1fr}}
   @media(max-width:880px){
-    .nlinks{display:none}.navtog{display:block}
+    .nlinks{display:none}.navtog{display:flex}
     .nlinks.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;background:rgba(10,13,20,.97);border-bottom:1px solid var(--line);padding:8px 0}
     .nlinks.open li{width:100%}.nlinks.open a{display:block;padding:14px 28px}.nlinks.open .nbtn{margin:10px 28px}
     .about-grid{grid-template-columns:1fr;gap:32px}
@@ -269,6 +269,7 @@
     .role{font-size:11.5px;padding:6px 11px}
   }
 </style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -276,7 +277,7 @@
 <nav>
   <div class="nav">
     <a href="#top" class="logo">Vincent <b>Barnes</b></a>
-    <button class="navtog" id="navtog" aria-label="Menu">☰</button>
+    <button class="navtog" id="navtog" aria-label="Menu" aria-expanded="false">☰</button>
     <ul class="nlinks" id="nlinks">
       <li><a href="#about">About</a></li>
       <li><a href="#work">What I Do</a></li>
@@ -514,7 +515,7 @@
    if(innerWidth<=900||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
    var t=false;addEventListener('scroll',function(){if(t)return;t=true;
      requestAnimationFrame(function(){var y=Math.min(scrollY,700);
-       w.style.transform='translateY('+(y*0.16)+'px)';w.style.opacity=String(Math.max(0,1-y/620));t=false;});},{passive:true});})();
+       w.style.transform='translateY('+(y*0.16)+'px)';w.style.opacity=String(Math.max(0,1-y/900));t=false;});},{passive:true});})();
 
   // magnetic buttons — subtle pull toward the cursor
   (function(){if(matchMedia('(hover:none)').matches)return;
@@ -526,7 +527,7 @@
 
   // mobile nav
   (function(){var t=document.getElementById('navtog'),n=document.getElementById('nlinks');
-   if(t&&n){t.onclick=()=>n.classList.toggle('open');n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>n.classList.remove('open')));}})();
+   if(t&&n){t.onclick=()=>{var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o);};n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('open');t.setAttribute('aria-expanded','false');}));}})();
 
   // scroll reveal
   (function(){
