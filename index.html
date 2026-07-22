@@ -511,7 +511,7 @@
 
   // hero parallax — content drifts as you scroll
   (function(){var w=document.querySelector('.hero .wrap');if(!w)return;
-   if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+   if(innerWidth<=900||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
    var t=false;addEventListener('scroll',function(){if(t)return;t=true;
      requestAnimationFrame(function(){var y=Math.min(scrollY,700);
        w.style.transform='translateY('+(y*0.16)+'px)';w.style.opacity=String(Math.max(0,1-y/620));t=false;});},{passive:true});})();
